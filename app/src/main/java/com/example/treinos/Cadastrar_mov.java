@@ -1,11 +1,13 @@
 package com.example.treinos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +18,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class Cadastrar_mov extends AppCompatActivity {
 
     TextView tv_id;
-    EditText ed_nome, ed_tipo, ed_descricao;
-    Button bt_salvar, bt_voltar2;
+    EditText ed_nome, ed_tipo, ed_descricao, ed_video;
+    Button bt_salvar, bt_voltar2 ;
 
 
     @Override
@@ -26,12 +28,16 @@ public class Cadastrar_mov extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_cadastrar_mov);
 
+
+
         tv_id = findViewById(R.id.tv_id);
         ed_nome = findViewById(R.id.ed_nome);
         ed_tipo = findViewById(R.id.ed_tipo);
         ed_descricao = findViewById(R.id.ed_descricao);
+        ed_video = findViewById(R.id.ed_video);
         bt_salvar = findViewById(R.id.bt_salvar);
         bt_voltar2 = findViewById(R.id.bt_voltar2);
+
 
         bt_salvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +61,15 @@ public class Cadastrar_mov extends AppCompatActivity {
             }
         });
 
+        bt_voltar2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                voltarTela();
+
+            }
+        }
+        );
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -67,6 +82,13 @@ public class Cadastrar_mov extends AppCompatActivity {
         ed_nome.setText("");
         ed_tipo.setText("");
         ed_descricao.setText("");
+        ed_video.setText("");
+    }
+
+    private void voltarTela() {
+        Intent telaPrincipal = new Intent(Cadastrar_mov.this, MainActivity.class);
+        startActivity(telaPrincipal);
+        finish();
     }
 
 }

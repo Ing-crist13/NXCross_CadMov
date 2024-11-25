@@ -23,6 +23,7 @@
             android:padding="13dp"
             android:paddingStart="110dp"
             android:text="CADASTRAR MOVIMENTOS"
+            android:textColor="@color/white"
             android:textColorLink="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -70,10 +71,25 @@
             android:id="@+id/ed_descricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
+            android:paddingStart="5dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="URL do Video" />
+
+        <EditText
+            android:id="@+id/ed_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
             android:paddingStart="5dp" />
 
         <Button
@@ -81,6 +97,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:layout_marginBottom="5dp"
             android:backgroundTint="@color/black"
             android:padding="10dp"
             android:text="SALVAR"
@@ -89,9 +106,11 @@
         <Button
             android:id="@+id/bt_voltar2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="47dp"
             android:layout_margin="10dp"
+            android:layout_marginTop="5dp"
             android:backgroundTint="@color/black"
             android:text="VOLTAR" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

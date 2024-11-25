@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +15,7 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<MyViewHolder> {
     Context context;
     List<Movimento> mov;
+    MovimentoDAO dao;
 
     public Adapter(Context context, List<Movimento> mov) {
         this.context = context;
@@ -63,12 +65,22 @@ public class Adapter extends RecyclerView.Adapter<MyViewHolder> {
             }
         });
 
-    }
+        holder.item_name.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
 
+                Toast.makeText(context, "Clique longo detectado", Toast.LENGTH_SHORT).show();
+
+                return true;
+            }
+        });
+
+    }
 
 
     @Override
     public int getItemCount() {
         return mov.size();
     }
+
 }

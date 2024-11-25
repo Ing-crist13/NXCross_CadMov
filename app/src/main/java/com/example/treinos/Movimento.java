@@ -5,14 +5,18 @@ public class Movimento {
     private String nome;
     private  String tipo;
     private String descricao;
-   // private String video;
+    private String video;
 
 
-    public Movimento(int id, String nome, String tipo, String descricao) {
+
+
+    public Movimento(int id, String nome, String tipo, String descricao, String video) {
         this.id = id;
         this.nome = nome;
         this.tipo = tipo;
         this.descricao = descricao;
+        this.video = video;
+
     }
 
     public Movimento(){
@@ -20,6 +24,14 @@ public class Movimento {
         this.nome = "";
         this.tipo = "";
         this.descricao = "";
+        this.video = "";
+    }
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
     }
 
     public int getId() {

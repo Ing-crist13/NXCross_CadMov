@@ -2,8 +2,13 @@ package com.example.treinos;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +20,9 @@ public class Detalhe extends AppCompatActivity {
 
     TextView tv_nome, tv_tipo, tv_descricao1;
     Button bt_excluir, bt_voltar3;
+    WebView v_video;
+
+
 
 
     @Override
@@ -23,9 +31,11 @@ public class Detalhe extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_detalhe);
 
+       // tv_id_detalhe = findViewById(R.id.tv_id_detalhe);
         tv_nome = findViewById(R.id.tv_nome);
         tv_tipo = findViewById(R.id.tv_tipo);
         tv_descricao1 = findViewById(R.id.tv_descricao1);
+        v_video = findViewById(R.id.v_video);
         bt_excluir = findViewById(R.id.bt_excluir);
         bt_voltar3 = findViewById(R.id.bt_voltar3);
 
@@ -37,11 +47,20 @@ public class Detalhe extends AppCompatActivity {
 
         Movimento m = dao.consultarPorId(movID);
 
+       // tv_id_detalhe.setText(m.getId());
         tv_nome.setText("Movimento: " + m.getNome());
         tv_tipo.setText("Tipo: " + m.getTipo());
         tv_descricao1.setText("Descrição: " + m.getDescricao());
 
 
+
+
+        bt_voltar3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                        voltarTela();
+            }
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -49,4 +68,10 @@ public class Detalhe extends AppCompatActivity {
             return insets;
         });
     }
+    private void voltarTela() {
+        Intent telaPrincipal = new Intent(Detalhe.this, Listar.class);
+        startActivity(telaPrincipal);
+        finish();
+    }
+
 }

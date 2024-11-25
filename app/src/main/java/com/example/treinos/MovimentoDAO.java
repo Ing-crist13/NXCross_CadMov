@@ -29,7 +29,8 @@ public class MovimentoDAO extends SQLiteOpenHelper {
                 COLUNA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUNA_NOME + " TEXT NOT NULL, " +
                 COLUNA_TIPO + " TEXT NOT NULL, " +
-                COLUNA_DESCRICAO + " TEXT NOT NULL) " );
+                COLUNA_DESCRICAO + " TEXT NOT NULL, " +
+                COLUNA_VIDEO + " TEXT NOT NULL ) " );
 
     }
 
@@ -45,17 +46,19 @@ public class MovimentoDAO extends SQLiteOpenHelper {
         valores.put(COLUNA_NOME, m.getNome());
         valores.put(COLUNA_TIPO, m.getTipo());
         valores.put(COLUNA_DESCRICAO, m.getDescricao());
+        valores.put(COLUNA_VIDEO, m.getVideo());
+
 
 
         db.insert(TABELA_MOVIMENTOS, null, valores);
         db.close();
     }
 
-    public Movimento consultarPorId( int id){
+    public Movimento consultarPorId(int id){
         Movimento m;
         m = null;
         String parametro[] = {String.valueOf(id)};
-        String campos [] = { "id, nome, tipo, descricao"};
+        String campos [] = { "id, nome, tipo, descricao, video"};
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cr = db.query(TABELA_MOVIMENTOS, campos, "id = ?", parametro, null, null, null, null);
         if(cr.moveToFirst()){
@@ -64,6 +67,7 @@ public class MovimentoDAO extends SQLiteOpenHelper {
             m.setNome(cr.getString(1));
             m.setTipo(cr.getString(2));
             m.setDescricao(cr.getString(3));
+           m.setVideo(cr.getString(4));
 
         }
         db.close();
