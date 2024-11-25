@@ -1,6 +1,7 @@
 package com.example.treinos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +51,17 @@ public class Adapter extends RecyclerView.Adapter<MyViewHolder> {
 
         Movimento movimento = mov.get(position);
         holder.item_name.setText(movimento.getNome());
+
+        holder.item_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                int position = holder.getAdapterPosition();
+                Intent intent = new Intent(context, Detalhe.class);
+                intent.putExtra("movimento", movimento.getId());
+                context.startActivity(intent);
+            }
+        });
 
     }
 

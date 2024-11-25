@@ -38,7 +38,7 @@ public class Listar extends AppCompatActivity {
         rv_listar.setAdapter(adapter);
         adapter.setMov(movimentoList);
 
-       // adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
