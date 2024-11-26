@@ -58,7 +58,7 @@ public class MovimentoDAO extends SQLiteOpenHelper {
         Movimento m;
         m = null;
         String parametro[] = {String.valueOf(id)};
-        String campos [] = { "id, nome, tipo, descricao, video"};
+        String campos [] = { "id, nome, tipo, descricao"};
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cr = db.query(TABELA_MOVIMENTOS, campos, "id = ?", parametro, null, null, null, null);
         if(cr.moveToFirst()){
@@ -67,7 +67,7 @@ public class MovimentoDAO extends SQLiteOpenHelper {
             m.setNome(cr.getString(1));
             m.setTipo(cr.getString(2));
             m.setDescricao(cr.getString(3));
-           m.setVideo(cr.getString(4));
+           //m.setVideo(cr.getString(4));
 
         }
         db.close();

@@ -1,10 +1,13 @@
 package com.example.treinos;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -64,16 +67,19 @@ public class Adapter extends RecyclerView.Adapter<MyViewHolder> {
                 context.startActivity(intent);
             }
         });
-
         holder.item_name.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
 
-                Toast.makeText(context, "Clique longo detectado", Toast.LENGTH_SHORT).show();
+                PopupMenu popupMenu = new PopupMenu(context, view);
+                popupMenu.inflate(R.menu.menu);
+
+                popupMenu.show();
 
                 return true;
             }
         });
+
 
     }
 

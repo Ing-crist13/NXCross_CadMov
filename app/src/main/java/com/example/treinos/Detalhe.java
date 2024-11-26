@@ -31,7 +31,7 @@ public class Detalhe extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_detalhe);
 
-       // tv_id_detalhe = findViewById(R.id.tv_id_detalhe);
+      // tv_id_detalhe = findViewById(R.id.tv_id_detalhe);
         tv_nome = findViewById(R.id.tv_nome);
         tv_tipo = findViewById(R.id.tv_tipo);
         tv_descricao1 = findViewById(R.id.tv_descricao1);
@@ -47,10 +47,20 @@ public class Detalhe extends AppCompatActivity {
 
         Movimento m = dao.consultarPorId(movID);
 
-       // tv_id_detalhe.setText(m.getId());
+      // tv_id_detalhe.setText(m.getId());
         tv_nome.setText("Movimento: " + m.getNome());
         tv_tipo.setText("Tipo: " + m.getTipo());
         tv_descricao1.setText("Descrição: " + m.getDescricao());
+
+       /* bt_excluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MovimentoDAO dao;
+                dao = new MovimentoDAO(Detalhe.this);
+                dao.excluirItem(Integer.parseInt(tv_id_detalhe.getText().toString()));
+                Toast.makeText(Detalhe.this, " Contato Excluido com sucesso", Toast.LENGTH_SHORT).show();
+            }
+        });*/
 
 
 
