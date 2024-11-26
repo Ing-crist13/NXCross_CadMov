@@ -61,20 +61,27 @@ public class Adapter extends RecyclerView.Adapter<MyViewHolder> {
             @Override
             public void onClick(View view) {
 
-                int position = holder.getAdapterPosition();
+                int position = holder.getAdapterPosition(); // associa a variavel a posiçao do clique
                 Intent intent = new Intent(context, Detalhe.class);
-                intent.putExtra("movimento", movimento.getId());
-                context.startActivity(intent);
+                intent.putExtra("movimento", movimento.getId()); // passa os dados para a proxima tela (detalhe)
+                context.startActivity(intent);//inicia a intent
             }
         });
         holder.item_name.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                MovimentoDAO dao;
+                dao = new MovimentoDAO(context);
+                dao.excluirItem(position);
+                mov.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, mov.size());
 
-                PopupMenu popupMenu = new PopupMenu(context, view);
-                popupMenu.inflate(R.menu.menu);
 
-                popupMenu.show();
+                //PopupMenu popupMenu = new PopupMenu(context, view);
+               // popupMenu.inflate(R.menu.menu);
+
+               // popupMenu.show();
 
                 return true;
             }
