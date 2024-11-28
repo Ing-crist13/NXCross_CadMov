@@ -77,20 +77,19 @@
             android:inputType="textMultiLine"
             android:paddingStart="5dp" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="URL do Video" />
+        <VideoView
+            android:id="@+id/v_video1"
+            android:layout_width="wrap_content"
+            android:layout_height="201dp"
+            android:layout_margin="10dp" />
 
-        <EditText
-            android:id="@+id/ed_video"
+        <Button
+            android:id="@+id/bt_carregar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:paddingStart="5dp" />
+            android:layout_height="50dp"
+            android:backgroundTint="@color/black"
+            android:text="CARREGAR VIDEO"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/bt_salvar"
@@ -110,7 +109,8 @@
             android:layout_margin="10dp"
             android:layout_marginTop="5dp"
             android:backgroundTint="@color/black"
-            android:text="VOLTAR" />
+            android:text="VOLTAR"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,7 +40,7 @@ public class Listar extends AppCompatActivity {
         rv_listar.setAdapter(adapter);
         adapter.setMov(movimentoList);
 
-        adapter.notifyDataSetChanged();
+       // adapter.notifyDataSetChanged();
 
         bt_voltar.setOnClickListener(new View.OnClickListener() {
             @Override

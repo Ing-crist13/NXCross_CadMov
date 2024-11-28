@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.MediaController;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.activity.EdgeToEdge;
@@ -19,8 +17,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class Detalhe extends AppCompatActivity {
 
     TextView tv_nome, tv_tipo, tv_descricao1;
-    Button bt_excluir, bt_voltar3;
-    WebView v_video;
+    Button  bt_voltar3;
+    VideoView v_video;
 
 
 
@@ -36,7 +34,6 @@ public class Detalhe extends AppCompatActivity {
         tv_tipo = findViewById(R.id.tv_tipo);
         tv_descricao1 = findViewById(R.id.tv_descricao1);
         v_video = findViewById(R.id.v_video);
-        bt_excluir = findViewById(R.id.bt_excluir);
         bt_voltar3 = findViewById(R.id.bt_voltar3);
 
         Intent intent = getIntent();
@@ -51,17 +48,7 @@ public class Detalhe extends AppCompatActivity {
         tv_nome.setText("Movimento: " + m.getNome());
         tv_tipo.setText("Tipo: " + m.getTipo());
         tv_descricao1.setText("Descrição: " + m.getDescricao());
-
-       /* bt_excluir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MovimentoDAO dao;
-                dao = new MovimentoDAO(Detalhe.this);
-                dao.excluirItem(Integer.parseInt(tv_id_detalhe.getText().toString()));
-                Toast.makeText(Detalhe.this, " Contato Excluido com sucesso", Toast.LENGTH_SHORT).show();
-            }
-        });*/
-
+        //v_video.
 
 
 

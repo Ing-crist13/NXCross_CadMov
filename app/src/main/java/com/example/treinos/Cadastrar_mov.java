@@ -18,8 +18,9 @@ import androidx.core.view.WindowInsetsCompat;
 public class Cadastrar_mov extends AppCompatActivity {
 
     TextView tv_id;
-    EditText ed_nome, ed_tipo, ed_descricao, ed_video;
-    Button bt_salvar, bt_voltar2 ;
+    EditText ed_nome, ed_tipo, ed_descricao;
+    Button bt_salvar, bt_voltar2, bt_carregar ;
+    VideoView v_video1;
 
 
     @Override
@@ -34,9 +35,10 @@ public class Cadastrar_mov extends AppCompatActivity {
         ed_nome = findViewById(R.id.ed_nome);
         ed_tipo = findViewById(R.id.ed_tipo);
         ed_descricao = findViewById(R.id.ed_descricao);
-        ed_video = findViewById(R.id.ed_video);
+        v_video1 = findViewById(R.id.v_video1);
         bt_salvar = findViewById(R.id.bt_salvar);
         bt_voltar2 = findViewById(R.id.bt_voltar2);
+        bt_carregar = findViewById(R.id.bt_carregar);
 
 
         bt_salvar.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +58,6 @@ public class Cadastrar_mov extends AppCompatActivity {
                 Toast.makeText(Cadastrar_mov.this, "Movimento cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
 
                 limparCampos();
-
 
             }
         });
@@ -82,7 +83,7 @@ public class Cadastrar_mov extends AppCompatActivity {
         ed_nome.setText("");
         ed_tipo.setText("");
         ed_descricao.setText("");
-        ed_video.setText("");
+        //ed_video.setText("");
     }
 
     private void voltarTela() {

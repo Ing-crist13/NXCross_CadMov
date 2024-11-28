@@ -1,13 +1,16 @@
 package com.example.treinos;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,6 +22,7 @@ public class Adapter extends RecyclerView.Adapter<MyViewHolder> {
     Context context;
     List<Movimento> mov;
     MovimentoDAO dao;
+
 
     public Adapter(Context context, List<Movimento> mov) {
         this.context = context;
@@ -67,33 +71,33 @@ public class Adapter extends RecyclerView.Adapter<MyViewHolder> {
                 context.startActivity(intent);//inicia a intent
             }
         });
-        holder.item_name.setOnLongClickListener(new View.OnLongClickListener() {
+
+        holder.ib_excluir.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View view) {
-                MovimentoDAO dao;
+            public void onClick(View view) {
+                //Recuperando o id do item
+                int id = mov.get(position).getId();
+
+                //Acessando o banco de dados local do aplicativo
                 dao = new MovimentoDAO(context);
-                dao.excluirItem(position);
+                //excluindo do banco de dados
+                dao.excluirItem(id);
+                //Remover o item também da nossa lista
                 mov.remove(position);
+
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, mov.size());
 
+                Toast.makeText(context, "Movimento excluido com sucesso!", Toast.LENGTH_SHORT).show();
 
-                //PopupMenu popupMenu = new PopupMenu(context, view);
-               // popupMenu.inflate(R.menu.menu);
-
-               // popupMenu.show();
-
-                return true;
             }
         });
-
-
     }
-
 
     @Override
     public int getItemCount() {
         return mov.size();
     }
 
-}
+    }
+
