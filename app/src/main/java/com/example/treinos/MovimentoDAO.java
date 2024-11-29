@@ -48,8 +48,6 @@ public class MovimentoDAO extends SQLiteOpenHelper {
         valores.put(COLUNA_DESCRICAO, m.getDescricao());
         valores.put(COLUNA_VIDEO, m.getVideo());
 
-
-
         db.insert(TABELA_MOVIMENTOS, null, valores);
         db.close();
     }
@@ -58,7 +56,7 @@ public class MovimentoDAO extends SQLiteOpenHelper {
         Movimento m;
         m = null;
         String parametro[] = {String.valueOf(id)};
-        String campos [] = { "id, nome, tipo, descricao"};
+        String campos [] = { "id, nome, tipo, descricao, video"};
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cr = db.query(TABELA_MOVIMENTOS, campos, "id = ?", parametro, null, null, null, null);
         if(cr.moveToFirst()){
@@ -67,7 +65,7 @@ public class MovimentoDAO extends SQLiteOpenHelper {
             m.setNome(cr.getString(1));
             m.setTipo(cr.getString(2));
             m.setDescricao(cr.getString(3));
-           //m.setVideo(cr.getString(4));
+            m.setVideo(cr.getString(4));
 
         }
         db.close();
@@ -77,7 +75,7 @@ public class MovimentoDAO extends SQLiteOpenHelper {
     public List<Movimento> exibirDados(){
         List<Movimento> movimento = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String selectQuery = "SELECT id, nome FROM " + TABELA_MOVIMENTOS;
+        String selectQuery = "SELECT id, nome FROM " + TABELA_MOVIMENTOS ;
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         if(cursor.moveToFirst()){

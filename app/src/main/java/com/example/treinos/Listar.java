@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Listar extends AppCompatActivity {
@@ -33,6 +34,7 @@ public class Listar extends AppCompatActivity {
 
         List<Movimento> movimentoList = dao.exibirDados();
 
+
         Adapter adapter = new Adapter(Listar.this, movimentoList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(Listar.this, LinearLayoutManager.VERTICAL, false);
         rv_listar.setLayoutManager(layoutManager);
@@ -40,7 +42,7 @@ public class Listar extends AppCompatActivity {
         rv_listar.setAdapter(adapter);
         adapter.setMov(movimentoList);
 
-       // adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
 
         bt_voltar.setOnClickListener(new View.OnClickListener() {
             @Override

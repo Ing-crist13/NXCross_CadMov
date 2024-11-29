@@ -18,9 +18,9 @@ import androidx.core.view.WindowInsetsCompat;
 public class Cadastrar_mov extends AppCompatActivity {
 
     TextView tv_id;
-    EditText ed_nome, ed_tipo, ed_descricao;
-    Button bt_salvar, bt_voltar2, bt_carregar ;
-    VideoView v_video1;
+    EditText ed_nome, ed_tipo, ed_descricao, ed_url;
+    Button bt_salvar, bt_voltar2 ;
+
 
 
     @Override
@@ -35,10 +35,9 @@ public class Cadastrar_mov extends AppCompatActivity {
         ed_nome = findViewById(R.id.ed_nome);
         ed_tipo = findViewById(R.id.ed_tipo);
         ed_descricao = findViewById(R.id.ed_descricao);
-        v_video1 = findViewById(R.id.v_video1);
+        ed_url = findViewById(R.id.ed_url);
         bt_salvar = findViewById(R.id.bt_salvar);
         bt_voltar2 = findViewById(R.id.bt_voltar2);
-        bt_carregar = findViewById(R.id.bt_carregar);
 
 
         bt_salvar.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +49,7 @@ public class Cadastrar_mov extends AppCompatActivity {
                 m.setNome(ed_nome.getText().toString());
                 m.setTipo(ed_tipo.getText().toString());
                 m.setDescricao(ed_descricao.getText().toString());
+                m.setVideo(ed_url.getText().toString());
 
                 MovimentoDAO dao;
                 dao = new MovimentoDAO(Cadastrar_mov.this);
@@ -83,7 +83,7 @@ public class Cadastrar_mov extends AppCompatActivity {
         ed_nome.setText("");
         ed_tipo.setText("");
         ed_descricao.setText("");
-        //ed_video.setText("");
+        ed_url.setText("");
     }
 
     private void voltarTela() {

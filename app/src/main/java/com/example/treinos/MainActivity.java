@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button bt_cadastrar, bt_listar;
+    Button bt_cadastrar, bt_listar, bt_cadastrar_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
         bt_cadastrar = findViewById(R.id.bt_cadastrar);
         bt_listar = findViewById(R.id.bt_listar);
+        bt_cadastrar_user = findViewById(R.id.bt_cadastrar_user);
+
+
 
 
         bt_cadastrar.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +41,15 @@ public class MainActivity extends AppCompatActivity {
                 exibirProxima(0);
             }
         });
+
+        bt_cadastrar_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                exibirCadUser();
+
+            }
+        });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.Inicial), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -56,4 +68,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(telaPrincipal);
         finish();
     }
+    private void exibirCadUser() {
+        Intent telaPrincipal = new Intent(MainActivity.this, Cadastro_user.class);
+        startActivity(telaPrincipal);
+        finish();
+    }
+
 }

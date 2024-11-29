@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cadastrar_mov">
+    tools:context=".Cadastro_user">
 
     <LinearLayout
         android:layout_width="409dp"
@@ -15,104 +15,115 @@
         tools:layout_editor_absoluteY="1dp">
 
         <TextView
-            android:id="@+id/tv_id"
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginBottom="15dp"
+            android:layout_height="wrap_content"
             android:background="@color/black"
             android:padding="13dp"
-            android:paddingStart="110dp"
-            android:text="CADASTRAR MOVIMENTOS"
+            android:paddingStart="125dp"
+            android:text="CADASTRAR USUARIO"
             android:textColor="@color/white"
-            android:textColorLink="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Nome do movimento" />
+            android:text="Nome :" />
 
         <EditText
-            android:id="@+id/ed_nome"
+            android:id="@+id/ed_nome_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:ems="10"
             android:inputType="text"
             android:padding="10dp" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Tipo" />
+            android:text="CPF" />
 
         <EditText
-            android:id="@+id/ed_tipo"
+            android:id="@+id/ed_cpf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="phone"
             android:padding="10dp" />
 
         <TextView
-            android:id="@+id/tv_descricao"
+            android:id="@+id/tv_telefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Descrição" />
+            android:text="Telefone" />
 
         <EditText
-            android:id="@+id/ed_descricao"
+            android:id="@+id/ed_telefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            android:paddingStart="5dp" />
+            android:inputType="phone"
+            android:padding="10dp" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="URL do video" />
+            android:text="E-mail" />
 
         <EditText
-            android:id="@+id/ed_url"
+            android:id="@+id/ed_email"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
-            android:padding="5dp" />
+            android:inputType="textEmailAddress"
+            android:padding="10dp" />
+
+        <ImageView
+            android:id="@+id/img_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="143dp"
+            android:layout_marginTop="20dp"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <Button
-            android:id="@+id/bt_salvar"
+            android:id="@+id/bt_foto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="5dp"
             android:backgroundTint="@color/black"
-            android:padding="10dp"
-            android:text="SALVAR"
+            android:text="FOTO DO PERFIL"
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/bt_voltar2"
+            android:id="@+id/bt_salvar_user"
             android:layout_width="match_parent"
-            android:layout_height="47dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/black"
+            android:text="SALVAR USUARIO"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/bt_voltar_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:backgroundTint="@color/black"
             android:text="VOLTAR"
             android:textColor="@color/white" />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
